@@ -1,0 +1,23 @@
+{
+  "name": "hrr47-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogen-code/hrr47-mvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogen-code/hrr47-mvp/issues"
+  },
+  "homepage": "https://github.com/rogen-code/hrr47-mvp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
