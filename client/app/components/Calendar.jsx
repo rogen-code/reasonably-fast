@@ -1,19 +1,27 @@
 import React from "react";
 import moment from 'moment';
+import axios from 'axios';
 import MonthPicker from './Month.jsx';
 import Days from './Days.jsx';
 moment().format();
 
-
-export default class Calendar extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       dateObject: moment(),
       allmonths: moment.months(),
-      raceDate: [2020, 11, 6]
+      data: [],
+      raceDate: [2020, 11, 6],
     }
+    this.getAthleteData = this.getAthleteData.bind(this);
     this.monthClick = this.monthClick.bind(this);
+    this.firstDayOfMonth = this.firstDayOfMonth.bind(this);
+    this.month = this.month.bind(this);
+    this.year = this.year.bind(this);
+    this.selected = this.selected.bind(this);
+    this.firstDayOfMonthUnix = this.firstDayOfMonthUnix.bind(this);
+    this.lastDayOfMonthUnix = this.lastDayOfMonthUnix.bind(this);
   }
 
   firstDayOfMonth = () => {
@@ -42,7 +50,42 @@ export default class Calendar extends React.Component {
     dateObject = moment(dateObject).set("month", monthNum);
     this.setState({
       dateObject
+    }, this.getAthleteData)
+  }
+
+  firstDayOfMonthUnix = () => {
+    let dateObject = this.state.dateObject;
+    let firstDay = moment(dateObject)
+                  .startOf('month')
+                  .format('X')
+      return firstDay
+  }
+
+  lastDayOfMonthUnix = () => {
+    let dateObject = this.state.dateObject;
+    let firstDay = moment(dateObject)
+                  .endOf('month')
+                  .format('X')
+      return firstDay
+  }
+
+  getAthleteData = () => {
+    let start = this.firstDayOfMonthUnix()
+    let end =  this.lastDayOfMonthUnix()
+
+    axios.get(`/calendar/${start}/${end}`)
+    .then((response) => {
+      this.setState({
+        data: response.data
+      })
     })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  componentDidMount() {
+    this.getAthleteData();
   }
 
   render() {
@@ -65,6 +108,7 @@ export default class Calendar extends React.Component {
           month={this.month()}
           year={this.year()}
           raceDate={moment(this.state.raceDate)}
+          data={this.state.data}
         />
       );
     }
@@ -105,4 +149,6 @@ export default class Calendar extends React.Component {
     )
   }
 }
+
+export default Calendar;
 
