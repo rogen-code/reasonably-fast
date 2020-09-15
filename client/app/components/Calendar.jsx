@@ -143,13 +143,13 @@ class Calendar extends React.Component {
     for (let i = 0; i < 5; i++) {
       calendar.push(
         <tr>
-          <td>{totalSlots[i * 7 + 0]}</td>
-          <td>{totalSlots[i * 7 + 1]}</td>
-          <td>{totalSlots[i * 7 + 2]}</td>
-          <td>{totalSlots[i * 7 + 3]}</td>
-          <td>{totalSlots[i * 7 + 4]}</td>
-          <td>{totalSlots[i * 7 + 5]}</td>
-          <td>{totalSlots[i * 7 + 6]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 0]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 1]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 2]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 3]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 4]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 5]}</td>
+          <td className="day-box-top">{totalSlots[i * 7 + 6]}</td>
         </tr>
       )
     }

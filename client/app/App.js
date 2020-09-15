@@ -42,10 +42,14 @@ class App extends React.Component {
 
    render(){
       return(
+      <>
+         <img id="photo" src="./imgs/runner.jpg" alt="runner header"></img>
+         <h1 id="head">Run For Your Life</h1>
          <div className="app">
             <Calendar upcomingRace={this.state.upcomingRace} />
             <RacePicker upcomingRace={this.state.upcomingRace} x={this.postRace}/>
          </div>
+      </>
       );
    }
 }
