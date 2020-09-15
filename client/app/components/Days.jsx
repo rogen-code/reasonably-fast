@@ -13,10 +13,10 @@ function Days(props) {
 
   return (
     <td key={props.key} className="calendarDay">
-      <div className="calendarText">
-        {props.month + ' ' + props.num}
+      <div className="calendarText calendar-day">
+        {props.num}
       </div>
-      <div className="calendarText">
+      <div className="calendarText workout-today">
         {'Your workout today is a ' + (halHigdonNovice1[diff] || 'light jog.')}
       </div>
       <div className="calendarText">

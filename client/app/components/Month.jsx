@@ -13,7 +13,7 @@ function MonthPicker(props){
     <table id="months">
       <thead>
         <tr>
-          <th colSpan="4" onClick={() => setDisplay(!display)}>Select A Month</th>
+          <th colSpan="4" className="month" onClick={() => setDisplay(!display)} >Select A Month</th>
         </tr>
       </thead>
       { display &&

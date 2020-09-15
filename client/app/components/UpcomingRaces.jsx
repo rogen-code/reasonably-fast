@@ -17,7 +17,7 @@ class UpcomingRaces extends React.Component {
       <div className="upcomingRaces">
        <h1>Upcoming Races</h1>
        <div>{this.props.upcomingRace}</div>
-       <form>
+       <form className="upcomingRace-form">
         <label>
           Race Day
         </label>

@@ -156,7 +156,7 @@ class Calendar extends React.Component {
 
     return (
     <div className="calendar">
-      <h1>{this.month()}</h1>
+      <h1 className="month">{this.month()}</h1>
       <MonthPicker onClick={this.monthClick}/>
       <table>
         <tr>

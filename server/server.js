@@ -13,18 +13,22 @@ app.use(bodyParser.json());
 app.get('/calendar/:start/:end', (req, res) => {
   let start = req.params.start;
   let end = req.params.end;
-  axios.get(`https://www.strava.com/api/v3/athlete/activities?before=${end}&after=${start}&per_page=100`, {
-    headers: {
-      'Authorization': process.env.STRAVA_TOKEN
-    }
-  })
-  .then((response) => {
-    res.send(response.data)
-  })
-  .catch((error) => {
-    console.log(error)
+  if (start < Date.now()) {
+    axios.get(`https://www.strava.com/api/v3/athlete/activities?before=${end}&after=${start}&per_page=100`, {
+      headers: {
+        'Authorization': process.env.STRAVA_TOKEN
+      }
+    })
+    .then((response) => {
+      res.send(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+      res.send([])
+    })
+  } else {
     res.send([])
-  })
+  }
 })
 
 app.get('/:athlete/read', (req, res) => {
