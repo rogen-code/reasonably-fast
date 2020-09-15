@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
 function MonthPicker(props){
-  var c = props.onClick;
   const [display, setDisplay] = useState(false)
+
+  var c = function(day) {
+    props.onClick(day);
+    setDisplay(!display);
+  }
+
+
   return (
     <table id="months">
       <thead>
