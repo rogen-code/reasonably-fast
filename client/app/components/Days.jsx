@@ -11,15 +11,17 @@ function Days(props) {
     return workout.start_date_local.substring(8,10) === props.num.toString().padStart(2, '0');
   })
 
-  console.log(newData, props.num)
-
   return (
-    <td key={props.key}>
-      {props.num}
-      {props.month}
-      {props.year}
-      {halHigdonNovice1[diff]}
-      <WorkoutInfo data={newData} />
+    <td key={props.key} className="calendarDay">
+      <div className="calendarText">
+        {props.month + ' ' + props.num}
+      </div>
+      <div className="calendarText">
+        {'Your workout today is a ' + (halHigdonNovice1[diff] || 'light jog.')}
+      </div>
+      <div className="calendarText">
+        <WorkoutInfo data={newData} />
+      </div>
     </td>
   )
 }

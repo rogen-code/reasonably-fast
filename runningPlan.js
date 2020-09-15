@@ -1,4 +1,10 @@
 module.exports.halHigdonNovice1 = {
+  '-6': 'Light 30-40 Minute Jog',
+  '-5': 'Rest',
+  '-4': 'Light 15 Minute Jog',
+  '-3': 'Light Elliptical',
+  '-2': 'Rest',
+  '-1': 'Rest',
   0: 'Race Day!',
   1: 'Rest',
   2: 'Rest',

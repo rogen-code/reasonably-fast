@@ -34,7 +34,7 @@ const updateAthlete = (id, name, raceDate, callback) => {
 }
 
 const deleteAthlete = (id, callback) => {
-  Athlete.findOneAndRemove({ id }, function (err, succ) {
+  Athlete.deleteMany({ id }, function (err, succ) {
     if (err) throw err;
     return callback(succ);
   })

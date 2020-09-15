@@ -4,7 +4,7 @@ function MonthPicker(props){
   var c = props.onClick;
   const [display, setDisplay] = useState(false)
   return (
-    <table>
+    <table id="months">
       <thead>
         <tr>
           <th colSpan="4" onClick={() => setDisplay(!display)}>Select A Month</th>

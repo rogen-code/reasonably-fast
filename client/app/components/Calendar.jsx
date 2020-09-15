@@ -84,9 +84,32 @@ class Calendar extends React.Component {
     })
   }
 
+  updateDay() {
+    if (this.props.upcomingRace) {
+      let date = this.props.upcomingRace.split('/');
+      date[0] = Number(date[0]) - 1;
+      let temp = date[0];
+      let temp1 = Number(date[1])
+      date[0] = Number(date[2]);
+      date[1] = temp
+      date[2] = temp1
+      console.log(date)
+      this.setState({
+        raceDate: date
+      })
+    }
+  }
+
   componentDidMount() {
     this.getAthleteData();
   }
+
+  componentDidUpdate(prevProps){
+    if (this.props.upcomingRace !== prevProps.upcomingRace) {
+      this.updateDay()
+    }
+  }
+
 
   render() {
     let weekdayshort = moment.weekdaysShort();
@@ -132,8 +155,8 @@ class Calendar extends React.Component {
     }
 
     return (
-    <>
-      {this.month()}
+    <div className="calendar">
+      <h1>{this.month()}</h1>
       <MonthPicker onClick={this.monthClick}/>
       <table>
         <tr>
@@ -145,7 +168,7 @@ class Calendar extends React.Component {
         </tr>
       {calendar}
       </table>
-    </>
+    </div>
     )
   }
 }

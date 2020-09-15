@@ -1,14 +1,15 @@
 import React  from 'react';
 import UpcomingRaces from './UpcomingRaces.jsx'
-import AddRaces from './AddRaces.jsx'
+// import AddRaces from './AddRaces.jsx'
+
 
 function RacePicker(props) {
 
   return (
-    <>
-      <UpcomingRaces />
-      <AddRaces />
-    </>
+    <div>
+      <UpcomingRaces upcomingRace={props.upcomingRace} x={props.x}/>
+      {/* <AddRaces /> */}
+    </div>
   )
 
 }

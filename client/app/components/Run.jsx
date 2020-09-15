@@ -3,7 +3,7 @@ import React from "react";
 function Run(props) {
   return (
     <div>
-      You ran for {props.distance} some units.
+      You ran for {Math.round(props.distance / 1609)} miles.
     </div>
   )
 }

@@ -22,18 +22,19 @@ app.get('/calendar/:start/:end', (req, res) => {
     res.send(response.data)
   })
   .catch((error) => {
-    res.sendStatus(500)
+    console.log(error)
+    res.send([])
   })
 })
 
-app.get('/:athlete/raceDay', (req, res) => {
+app.get('/:athlete/read', (req, res) => {
    findAthlete(req.params.athlete, (response) => {
      res.send(response)
    })
 })
 
 app.post('/:athlete/create', (req, res) => {
-  createAthlete(req.params.athlete, req.body.name, req.body.raceDate, (response) => {
+  updateAthlete(req.params.athlete, req.body.name, req.body.raceDate, (response) => {
     res.send(response)
   })
 })
